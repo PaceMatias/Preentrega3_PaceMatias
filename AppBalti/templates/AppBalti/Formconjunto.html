@@ -1,0 +1,22 @@
+{% extends "AppBalti/conjunto.html" %}
+
+{% block formularios %}
+<div class="container">
+    <div>
+        <form action="" method="POST"> {% csrf_token %}
+            <table>
+                
+                {{form.as_table}}
+
+            </table>
+
+            <input class="btn btn-primary btn-xl text-uppercase" type="submit" value="Guardar">
+
+
+        </form>
+        <div class="masthead-subheading">{{mensaje}}</div>
+    </div>
+
+
+</div>
+{% endblock formularios %}
