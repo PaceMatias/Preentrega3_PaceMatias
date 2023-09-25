@@ -1,0 +1,29 @@
+{% extends "AppBalti/bombachas.html" %}
+
+{% block formularios %}
+<div class="container">
+    <div>
+        <form action="" method="GET"> {% csrf_token %}
+            <table>
+                
+                {{form.as_table}}
+
+            </table>
+
+            <input class="btn btn-primary btn-xl text-uppercase" type="submit" value="Buscar">
+        </form>
+        {% if filtro %}
+        <div class="masthead-subheading">{{mensaje}}</div>
+          {% for busqueda in filtro %}
+            Nombre: {{busqueda.nombre}} - Articulo: {{busqueda.articulo}} - Talle: {{busqueda.talle}} - Color: {{busqueda.color}} - Tipo: {{busqueda.tipo_bombacha}}
+          
+          {% endfor %}
+        
+        {% else %}
+        <div class="masthead-subheading">{{mensaje}}</div>
+        {% endif %}
+    </div>
+
+
+</div>
+{% endblock formularios %}

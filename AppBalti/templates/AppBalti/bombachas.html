@@ -1,9 +1,9 @@
 {%extends "AppBalti/base_balti.html" %}
 {% block titulo %}
-Bombis, para renovar e innovar todos los días
+Bombis, para renovar<br>enamorandose todos los días
 {% endblock titulo %}
 {% block botones_formularios %}
 <a class="btn btn-primary btn-xl text-uppercase" href={% url 'Ingreso_bombacha' %}>Nueva Bombacha</a>
-<a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+<a class="btn btn-primary btn-xl text-uppercase" href={% url 'Buscar_bombacha' %}>Buscar por tipo</a>
 <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
 {% endblock botones_formularios %}

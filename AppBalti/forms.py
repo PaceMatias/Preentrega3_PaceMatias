@@ -1,5 +1,5 @@
 from django import forms
-
+#formularios de ingreso
 class Ingreso_PuntoVenta_Form(forms.Form):
     comercio = forms.CharField(max_length=40)
     provincia = forms.CharField(max_length=40)
@@ -30,3 +30,8 @@ class Ingreso_Dormir_Form(forms.Form):
     talle = forms.CharField(max_length=10) 
     color = forms.CharField(max_length=40)
     tipo_prenda = forms.CharField(max_length=20)
+
+#formularios de busqueda
+class Buscar_Bombacha(forms.Form):
+    tipo_bombacha = forms.CharField(max_length=20)
+    

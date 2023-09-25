@@ -132,3 +132,41 @@ def dormir_formulario(request):
         form = Ingreso_Dormir_Form()
 
     return render(request,"AppBalti/Formdormir.html",{"form":form})
+
+
+
+#Vistas de Formulario para buscar
+
+def buscar_bombacha(request):
+    if request.method == "GET":
+        form = Buscar_Bombacha(request.GET)
+        if form.is_valid():
+            datos = form.cleaned_data
+            filtro = Bombacha.objects.filter(tipo_bombacha__icontains = datos["tipo_bombacha"])
+            mensaje = f"Resultados para: {datos['tipo_bombacha']}"
+            form = Buscar_Bombacha()
+            return render(request,"AppBalti/buscaBombacha.html",{"mensaje":mensaje,"form":form,"filtro":filtro})
+        else:
+            mensaje ="Ingrese un tipo de bombacha para buscar."
+            form = Buscar_Bombacha()
+            return render(request,"AppBalti/buscaBombacha.html",{"mensaje":mensaje,"form":form})
+    else:
+        form = Buscar_Bombacha()
+    return render(request,"AppBalti/buscaBombacha.html",{"form":form})
+
+
+def buscar_conjunto(request):
+    
+    return render(request,"AppBalti/buscaConjunto.html")
+
+def buscar_dormir(request):
+    
+    return render(request,"AppBalti/buscaDormir.html")
+
+def buscar_punto (request):
+    
+    return render(request,"AppBalti/buscaPunto.html")
+
+def resultados(request):
+    
+    return HttpResponse(f"Resultados para la busqueda: ")
