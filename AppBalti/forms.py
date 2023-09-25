@@ -34,4 +34,12 @@ class Ingreso_Dormir_Form(forms.Form):
 #formularios de busqueda
 class Buscar_Bombacha(forms.Form):
     tipo_bombacha = forms.CharField(max_length=20)
-    
+
+class Buscar_Conjunto(forms.Form):
+    tipo_taza = forms.CharField(max_length=20)
+
+class Buscar_Dormir(forms.Form):
+    tipo_prenda = forms.CharField(max_length=20)
+
+class Buscar_Punto(forms.Form):
+    provincia = forms.CharField(max_length=40)

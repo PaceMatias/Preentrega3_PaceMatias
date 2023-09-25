@@ -3,7 +3,7 @@
 {% block formularios %}
 <div class="container">
     <div>
-        <form action="" method="GET"> {% csrf_token %}
+        <form action="" method="GET">
             <table>
                 
                 {{form.as_table}}
@@ -15,12 +15,15 @@
         {% if filtro %}
         <div class="masthead-subheading">{{mensaje}}</div>
           {% for busqueda in filtro %}
-            Nombre: {{busqueda.nombre}} - Articulo: {{busqueda.articulo}} - Talle: {{busqueda.talle}} - Color: {{busqueda.color}} - Tipo: {{busqueda.tipo_bombacha}}
+
+           <p> Nombre: {{busqueda.nombre}} - Articulo: {{busqueda.articulo}} - Talle: {{busqueda.talle}} - Color: {{busqueda.color}} - Tipo: {{busqueda.tipo_bombacha}} </p>
           
           {% endfor %}
         
         {% else %}
-        <div class="masthead-subheading">{{mensaje}}</div>
+        {% if request.GET %}
+          <div class="masthead-subheading">{{mensaje}}<br>No hay bombachas de ese tipo.</div>
+          {% endif %}
         {% endif %}
     </div>
 

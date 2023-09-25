@@ -1,0 +1,32 @@
+{% extends "AppBalti/puntos_de_venta.html" %}
+
+{% block formularios %}
+<div class="container">
+    <div>
+        <form action="" method="GET">
+            <table>
+                
+                {{form.as_table}}
+
+            </table>
+
+            <input class="btn btn-primary btn-xl text-uppercase" type="submit" value="Buscar">
+        </form>
+        {% if filtro %}
+          <div class="masthead-subheading">{{mensaje}}</div>
+          {% for busqueda in filtro %}
+          <p> Comercio: {{busqueda.comercio}} - Provincia: {{busqueda.provincia}} - Ciudad: {{busqueda.ciudad}} - Domicilio: {{busqueda.domicilio}} - Red: {{busqueda.red_social}} </p>
+          
+          {% endfor %}
+        
+        {% else %}
+          {% if request.GET %}
+          <div class="masthead-subheading">{{mensaje}}<br>Todavia no vendemos en esa provincia.</div>
+          {% endif %}
+          
+        {% endif %}
+    </div>
+
+
+</div>
+{% endblock formularios %}

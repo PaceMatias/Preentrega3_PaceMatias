@@ -152,21 +152,61 @@ def buscar_bombacha(request):
             return render(request,"AppBalti/buscaBombacha.html",{"mensaje":mensaje,"form":form})
     else:
         form = Buscar_Bombacha()
-    return render(request,"AppBalti/buscaBombacha.html",{"form":form})
+        mensaje = "No se enviaron datos."
+    return render(request,"AppBalti/buscaBombacha.html",{"mensaje":mensaje,"form":form})
 
 
 def buscar_conjunto(request):
-    
-    return render(request,"AppBalti/buscaConjunto.html")
+    if request.method == "GET":
+        form = Buscar_Conjunto(request.GET)
+        if form.is_valid():
+            datos = form.cleaned_data
+            filtro = Conjunto.objects.filter(tipo_taza__icontains = datos["tipo_taza"])
+            mensaje = f"Resultados para: {datos['tipo_taza']}"
+            form = Buscar_Conjunto()
+            return render(request,"AppBalti/buscaConjunto.html",{"mensaje":mensaje,"form":form,"filtro":filtro})
+        else:
+            mensaje ="Ingrese un tipo de taza para buscar."
+            form = Buscar_Conjunto()
+            return render(request,"AppBalti/buscaConjunto.html",{"mensaje":mensaje,"form":form})
+    else:
+        form = Buscar_Conjunto()
+        mensaje = "No se enviaron datos."
+    return render(request,"AppBalti/buscaConjunto.html",{"mensaje":mensaje,"form":form})
 
 def buscar_dormir(request):
+    if request.method == "GET":
+        form = Buscar_Dormir(request.GET)
+        if form.is_valid():
+            datos = form.cleaned_data
+            filtro = Dormir.objects.filter(tipo_prenda__icontains = datos["tipo_prenda"])
+            mensaje = f"Resultados para: {datos['tipo_prenda']}"
+            form = Buscar_Dormir()
+            return render(request,"AppBalti/buscaDormir.html",{"mensaje":mensaje,"form":form,"filtro":filtro})
+        else:
+            mensaje ="Ingrese un tipo de prenda para buscar."
+            form = Buscar_Dormir()
+            return render(request,"AppBalti/buscaDormir.html",{"mensaje":mensaje,"form":form})
+    else:
+        form = Buscar_Dormir()
+        mensaje = "No se enviaron datos."
+    return render(request,"AppBalti/buscaDormir.html",{"mensaje":mensaje,"form":form})     
     
-    return render(request,"AppBalti/buscaDormir.html")
 
 def buscar_punto (request):
-    
-    return render(request,"AppBalti/buscaPunto.html")
-
-def resultados(request):
-    
-    return HttpResponse(f"Resultados para la busqueda: ")
+    if request.method == "GET":
+        form = Buscar_Punto(request.GET)
+        if form.is_valid():
+            datos = form.cleaned_data
+            filtro = Puntos_De_Venta.objects.filter(provincia__icontains = datos["provincia"])
+            mensaje = f"Resultados para: {datos['provincia']}"
+            form = Buscar_Punto()
+            return render(request,"AppBalti/buscaPunto.html",{"mensaje":mensaje,"form":form,"filtro":filtro})
+        else:
+            mensaje ="Ingrese una provincia para buscar."
+            form = Buscar_Punto()
+            return render(request,"AppBalti/buscaPunto.html",{"mensaje":mensaje,"form":form})
+    else:
+        form = Buscar_Punto()
+        mensaje = "No se enviaron datos."
+    return render(request,"AppBalti/buscaPunto.html",{"mensaje":mensaje,"form":form})       
