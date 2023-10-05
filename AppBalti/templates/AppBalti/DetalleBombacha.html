@@ -1,0 +1,18 @@
+{% extends "AppBalti/bombachas.html" %}
+{% block listado %}
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">{{producto.nombre}}</h2>
+            <h3 class="section-subheading text-muted">
+            Articulo: {{producto.articulo}} 
+            <br>Modelo: {{producto.nombre}} 
+            <br>Tipo: {{producto.tipo_bombacha}}
+            <br>Color: {{producto.color}}
+            <br>Talle: {{producto.talle}}
+            <a href="{% url 'Todos_bombacha' %}">Volver al listado </a>
+
+            </h3>   
+        </div>
+
+{% endblock listado %}

@@ -37,15 +37,18 @@
                 </div>
             </div>
         </nav>
-        <!-- Masthead-->
         <header class="masthead">
             <div class="container">
                 <div class="masthead-subheading">{% block titulo %}{% endblock titulo %}</div>
                 <div class="masthead-heading text-uppercase">{% block titulo2 %}{% endblock titulo2 %}</div>
                 {% block botones_formularios %}{% endblock botones_formularios %}
             </div>
-            
-    {% block formularios %}{% endblock formularios %}
+            {% block formularios %}{% endblock formularios %}
+        </header>
+        {% block listado %}{% endblock listado %}    
+    </body>
+</html>    
+
 
 
        

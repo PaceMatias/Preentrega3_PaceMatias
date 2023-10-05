@@ -1,0 +1,19 @@
+{% extends "AppBalti/bombachas.html" %}
+{% block listado %}
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Nuestras Bombachas</h2>
+            <h3 class="section-subheading text-muted">
+            {% for producto in productos  %}
+            Articulo: {{producto.articulo}} - Modelo: {{producto.nombre}} - Tipo: {{producto.tipo_bombacha}}
+            <a href="{% url 'Detalle_bombacha' producto.id %}">Ver más </a> |
+            <a href="{% url 'Actualiza_bombacha' producto.id %}">Actualizar </a> |
+            <a href="{% url 'Borra_bombacha' producto.id %}">Eliminar </a>
+            <br>
+
+            {% endfor %}
+            </h3>   
+        </div>
+
+{% endblock listado %}

@@ -1,0 +1,21 @@
+{% extends "AppBalti/conjunto.html" %}
+
+{% block formularios %}
+<div class="container">
+    <div>
+        <form action="" method="POST"> {% csrf_token %}
+            <h2>Esta seguro de borrar el producto?</h2><br>
+            <h3>{{producto.articulo}}-{{producto.nombre}}-{{producto.color}}-{{producto.talle}}
+
+
+            <input class="btn btn-danger btn-xl text-uppercase" type="submit" value="Borrar">
+            <a class="btn btn-secondary btn-xl text-uppercase" href={% url 'Todos_bombacha' %}>Regresar</a>
+
+
+        </form>
+        
+    </div>
+
+
+</div>
+{% endblock formularios %}

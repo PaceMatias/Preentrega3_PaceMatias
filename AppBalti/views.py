@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from AppBalti.forms import *
 from AppBalti.models import *
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import UpdateView,DeleteView
 
 # Create your views here.
 
@@ -49,8 +51,6 @@ def puntoventa_formulario(request):
 
     return render(request,"AppBalti/Formpuntoventa.html",{"form":form})
 
-
-
 def conjunto_formulario(request):
     if request.method == "POST":
         form = Ingreso_Conjunto_Form(request.POST)
@@ -78,8 +78,6 @@ def conjunto_formulario(request):
 
     return render(request,"AppBalti/Formconjunto.html",{"form":form})
 
-
-
 def bombacha_formulario(request):
     if request.method == "POST":
         form = Ingreso_Bombacha_Form(request.POST)
@@ -105,7 +103,6 @@ def bombacha_formulario(request):
         form = Ingreso_Bombacha_Form()
 
     return render(request,"AppBalti/Formbombacha.html",{"form":form})
-
 
 def dormir_formulario(request):
     if request.method == "POST":
@@ -133,7 +130,31 @@ def dormir_formulario(request):
 
     return render(request,"AppBalti/Formdormir.html",{"form":form})
 
+#Vistas para leer
 
+def leer_bombacha(request):
+    bombachas = Bombacha.objects.all()
+    contexto = {"productos": bombachas}
+
+    return render(request, "AppBalti/VerBombachas.html" ,contexto)
+
+def leer_conjunto(request):
+    conjuntos = Conjunto.objects.all()
+    contexto = {"productos": conjuntos}
+
+    return render(request, "AppBalti/VerConjuntos.html" ,contexto)
+
+def leer_dormir(request):
+    pijamas = Dormir.objects.all()
+    contexto = {"productos": pijamas}
+
+    return render(request, "AppBalti/VerDormir.html" ,contexto)
+
+def leer_punto_venta(request):
+    locales = Puntos_De_Venta.objects.all()
+    contexto = {"puntos": locales}
+
+    return render(request, "AppBalti/VerPuntos.html" ,contexto)
 
 #Vistas de Formulario para buscar
 
@@ -154,7 +175,6 @@ def buscar_bombacha(request):
         form = Buscar_Bombacha()
         mensaje = "No se enviaron datos."
     return render(request,"AppBalti/buscaBombacha.html",{"mensaje":mensaje,"form":form})
-
 
 def buscar_conjunto(request):
     if request.method == "GET":
@@ -192,7 +212,6 @@ def buscar_dormir(request):
         mensaje = "No se enviaron datos."
     return render(request,"AppBalti/buscaDormir.html",{"mensaje":mensaje,"form":form})     
     
-
 def buscar_punto (request):
     if request.method == "GET":
         form = Buscar_Punto(request.GET)
@@ -210,3 +229,79 @@ def buscar_punto (request):
         form = Buscar_Punto()
         mensaje = "No se enviaron datos."
     return render(request,"AppBalti/buscaPunto.html",{"mensaje":mensaje,"form":form})       
+
+#Vistas Detalladas
+
+class Detalle_Bombacha (DetailView):
+
+    model = Bombacha
+    template_name = "AppBalti/DetalleBombacha.html"
+
+class Detalle_Conjunto (DetailView):
+
+    model = Conjunto
+    template_name = "AppBalti/DetalleConjunto.html"
+
+class Detalle_Dormir (DetailView):
+
+    model = Dormir
+    template_name = "AppBalti/DetalleDormir.html"
+
+class Detalle_Punto (DetailView):
+
+    model = Puntos_De_Venta
+    template_name = "AppBalti/DetallePuntos.html"
+
+#Vistas para modificar
+
+class Actualiza_Bombacha (UpdateView):
+    
+    model = Bombacha
+    template_name = "AppBalti/Formbombacha.html"
+    success_url = "/AppBalti/bombachas/todos"
+    fields = ["nombre","articulo","talle","color","tipo_bombacha"]
+
+class Actualiza_Conjunto (UpdateView):
+    
+    model = Conjunto
+    template_name = "AppBalti/Formconjunto.html"
+    success_url = "/AppBalti/conjuntos/todos"
+    fields = ["nombre","articulo","talle","color","tipo_taza","tipo_bombacha"]
+
+class Actualiza_Dormir (UpdateView):
+    
+    model = Dormir
+    template_name = "AppBalti/Formdormir.html"
+    success_url = "/AppBalti/dormir/todos"
+    fields = ["nombre","articulo","talle","color","tipo_prenda"]
+
+class Actualiza_Punto (UpdateView):
+    model = Puntos_De_Venta
+    template_name = "AppBalti/Formpuntoventa.html"
+    success_url = "/AppBalti/puntos_de_venta/todos"
+    fields = ["comercio","provincia","ciudad","domicilio","red_social","telefono","email"]
+
+#Vistas para borrar
+
+class Borra_Bombacha (DeleteView):
+    
+    model = Bombacha
+    template_name = "AppBalti/BorraBombacha.html"
+    success_url = "/AppBalti/bombachas/todos"
+
+class Borra_Conjunto (DeleteView):
+    
+    model = Conjunto
+    template_name = "AppBalti/BorraConjunto.html"
+    success_url = "/AppBalti/conjuntos/todos"
+
+class Borra_Dormir (DeleteView):
+    
+    model = Dormir
+    template_name = "AppBalti/BorraDormir.html"
+    success_url = "/AppBalti/dormir/todos"
+
+class Borra_Punto (DeleteView):
+    model = Puntos_De_Venta
+    template_name = "AppBalti/BorraPunto.html"
+    success_url = "/AppBalti/puntos_de_venta/todos"
