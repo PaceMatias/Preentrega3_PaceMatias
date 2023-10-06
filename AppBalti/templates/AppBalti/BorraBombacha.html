@@ -5,7 +5,7 @@
     <div>
         <form action="" method="POST"> {% csrf_token %}
             <h2>Esta seguro de borrar el producto?</h2><br>
-            <h3>{{producto.articulo}}-{{producto.nombre}}-{{producto.color}}-{{producto.talle}}
+            <h3>{{object.articulo}}-{{object.nombre}}-{{object.color}}-{{object.talle}}</h3><br>
 
 
             <input class="btn btn-danger btn-xl text-uppercase" type="submit" value="Borrar">

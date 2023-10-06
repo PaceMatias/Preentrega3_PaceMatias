@@ -258,27 +258,27 @@ class Actualiza_Bombacha (UpdateView):
     
     model = Bombacha
     template_name = "AppBalti/Formbombacha.html"
-    success_url = "/AppBalti/bombachas/todos"
+    success_url = "/bombachas/todos"
     fields = ["nombre","articulo","talle","color","tipo_bombacha"]
 
 class Actualiza_Conjunto (UpdateView):
     
     model = Conjunto
     template_name = "AppBalti/Formconjunto.html"
-    success_url = "/AppBalti/conjuntos/todos"
+    success_url = "/conjuntos/todos"
     fields = ["nombre","articulo","talle","color","tipo_taza","tipo_bombacha"]
 
 class Actualiza_Dormir (UpdateView):
     
     model = Dormir
     template_name = "AppBalti/Formdormir.html"
-    success_url = "/AppBalti/dormir/todos"
+    success_url = "/dormir/todos"
     fields = ["nombre","articulo","talle","color","tipo_prenda"]
 
 class Actualiza_Punto (UpdateView):
     model = Puntos_De_Venta
     template_name = "AppBalti/Formpuntoventa.html"
-    success_url = "/AppBalti/puntos_de_venta/todos"
+    success_url = "/puntos_de_venta/todos"
     fields = ["comercio","provincia","ciudad","domicilio","red_social","telefono","email"]
 
 #Vistas para borrar
@@ -287,21 +287,21 @@ class Borra_Bombacha (DeleteView):
     
     model = Bombacha
     template_name = "AppBalti/BorraBombacha.html"
-    success_url = "/AppBalti/bombachas/todos"
+    success_url = "/bombachas/todos"
 
 class Borra_Conjunto (DeleteView):
     
     model = Conjunto
     template_name = "AppBalti/BorraConjunto.html"
-    success_url = "/AppBalti/conjuntos/todos"
+    success_url = "/conjuntos/todos"
 
 class Borra_Dormir (DeleteView):
     
     model = Dormir
     template_name = "AppBalti/BorraDormir.html"
-    success_url = "/AppBalti/dormir/todos"
+    success_url = "/dormir/todos"
 
 class Borra_Punto (DeleteView):
     model = Puntos_De_Venta
     template_name = "AppBalti/BorraPunto.html"
-    success_url = "/AppBalti/puntos_de_venta/todos"
+    success_url = "/puntos_de_venta/todos"
