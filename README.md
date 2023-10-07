@@ -12,6 +12,6 @@ La navegacion basica es desde la pagina que abre al correr el servidor y luego t
 
 
 
-#Usuarios
+# Usuarios
 Se creo un super usuario para el admin, Us: Matias Pass: pacematias
 Se creo un usuario, Us:Profe Pass: python123
