@@ -250,7 +250,7 @@ class Detalle_Dormir (DetailView):
 class Detalle_Punto (DetailView):
 
     model = Puntos_De_Venta
-    template_name = "AppBalti/DetallePuntos.html"
+    template_name = "AppBalti/DetallePunto.html"
 
 #Vistas para modificar
 

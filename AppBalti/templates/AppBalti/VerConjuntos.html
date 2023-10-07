@@ -6,7 +6,11 @@
             <h2 class="section-heading text-uppercase">Nuestros Conjuntos</h2>
             <h3 class="section-subheading text-muted">
             {% for producto in productos  %}
-            Articulo: {{producto.articulo}} - Modelo: {{producto.nombre}} - Corpiño: {{producto.tipo_taza}} - Bombacha: {{producto.tipo_bombacha}}<br>
+            Articulo: {{producto.articulo}} - Modelo: {{producto.nombre}} - Corpiño: {{producto.tipo_taza}} - Bombacha: {{producto.tipo_bombacha}}
+            <a href="{% url 'Detalle_conjunto' producto.id %}">Ver más </a> |
+            <a href="{% url 'Actualiza_conjunto' producto.id %}">Actualizar </a> |
+            <a href="{% url 'Borra_conjunto' producto.id %}">Eliminar </a>
+            <br>
             {% endfor %}
             </h3>   
         </div>

@@ -384,7 +384,7 @@ button,
 [type=button],
 [type=reset],
 [type=submit] {
-  -webkit-appearance: button;
+ -webkit-apearance: button;
 }
 button:not(:disabled),
 [type=button]:not(:disabled),
@@ -442,7 +442,7 @@ legend + * {
 
 [type=search] {
   outline-offset: -2px;
-  -webkit-appearance: textfield;
+  -webkit-apearance: textfield;
 }
 
 /* rtl:raw:
@@ -463,7 +463,7 @@ legend + * {
 
 ::file-selector-button {
   font: inherit;
-  -webkit-appearance: button;
+  -webkit-apearance: button;
 }
 
 output {
@@ -10947,7 +10947,7 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image:  url("../assets/img/header-bg.jpg");
+  background-image:url('static/AppBalti/assets/img/IMG_7150.JPG');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;

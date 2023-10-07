@@ -1,4 +1,4 @@
-{% extends "AppBalti/bombachas.html" %}
+{% extends "AppBalti/dormir.html" %}
 {% block listado %}
 <section class="page-section" id="services">
     <div class="container">
@@ -6,7 +6,12 @@
             <h2 class="section-heading text-uppercase">Prendas para dormir</h2>
             <h3 class="section-subheading text-muted">
             {% for producto in productos  %}
-            Articulo: {{producto.articulo}} - Modelo: {{producto.nombre}} - Tipo: {{producto.tipo_prenda}}<br>
+            Articulo: {{producto.articulo}} - Modelo: {{producto.nombre}} - Tipo: {{producto.tipo_prenda}}
+            <a href="{% url 'Detalle_dormir' producto.id %}">Ver más </a> |
+            <a href="{% url 'Actualiza_dormir' producto.id %}">Actualizar </a> |
+            <a href="{% url 'Borra_dormir' producto.id %}">Eliminar </a>
+            <br>
+
             {% endfor %}
             </h3>   
         </div>

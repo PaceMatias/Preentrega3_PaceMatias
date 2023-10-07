@@ -1,0 +1,20 @@
+{% extends "AppLogin/base_login.html" %}
+
+
+{% block logueo %}
+
+<form action="" method="POST"> {% csrf_token %}
+
+    {{form.as_p}}
+
+    <button class="btn btn-primary btn-xl text-uppercase" type= "submit">Iniciar sesión</button>
+
+</form>
+
+{% endblock logueo %}
+
+{% block mensaje %}
+
+    {{mensaje}}
+
+{% endblock mensaje %}

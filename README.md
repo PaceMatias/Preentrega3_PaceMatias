@@ -6,5 +6,12 @@ Se crearon formularios para busqueda por cada modelo.
 Toda la pagina funciona por botones, se cargaron datos para poder probar, 2 datos por modelo.
 Se pueden ver desde admin para poder realizar busquedas validas.
 
-Hay varias plantillas que todavia no utilizo pero la navegacion basica es desde la pagina que abre al correr el servidor y luego todas estan vinculadas con los botones.
-Por ultimo se creo un super usuario para el admin, Us: Matias Pass: pacematias.
+La navegacion basica es desde la pagina que abre al correr el servidor y luego todas estan vinculadas con los botones.
+
+
+
+
+
+Usuarios
+Se creo un super usuario para el admin, Us: Matias Pass: pacematias
+Se creo un usuario, Us:Profe Pass: python123

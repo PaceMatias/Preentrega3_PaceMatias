@@ -5,8 +5,13 @@
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Puntos de Venta</h2>
             <h3 class="section-subheading text-muted">
-            {% for punto in puntos  %}
-            Comercio: {{punto.comercio}} - Provincia: {{punto.provincia}} - Ciudad: {{punto.ciudad}}<br>
+            {% for punto in puntos %}
+            Comercio: {{punto.comercio}} - Provincia: {{punto.provincia}} - Ciudad: {{punto.ciudad}}
+            <a href="{% url 'Detalle_punto' punto.id %}">Ver más </a> |
+            <a href="{% url 'Actualiza_punto' punto.id %}">Actualizar </a> |
+            <a href="{% url 'Borra_punto' punto.id %}">Eliminar </a>
+            <br>
+
             {% endfor %}
             </h3>   
         </div>

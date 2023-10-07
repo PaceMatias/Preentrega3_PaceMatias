@@ -1,0 +1,21 @@
+{% extends "AppBalti/puntos_de_venta.html" %}
+
+{% block formularios %}
+<div class="container">
+    <div>
+        <form action="" method="POST"> {% csrf_token %}
+            <h2>Esta seguro de borrar el punto de venta?</h2><br>
+            <h3>{{object.comercio}}-{{object.provincia}}-{{object.ciudad}}-{{object.domicilio}}</h3><br>
+
+
+            <input class="btn btn-danger btn-xl text-uppercase" type="submit" value="Borrar">
+            <a class="btn btn-secondary btn-xl text-uppercase" href={% url 'Todos_punto' %}>Regresar</a>
+
+
+        </form>
+        
+    </div>
+
+
+</div>
+{% endblock formularios %}

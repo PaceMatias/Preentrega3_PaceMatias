@@ -1,0 +1,18 @@
+{% extends "AppBalti/dormir.html" %}
+{% block listado %}
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">{{object.nombre}}</h2>
+            <h3 class="section-subheading text-muted">
+            Articulo: {{object.articulo}} 
+            <br>Modelo: {{object.nombre}} 
+            <br>Tipo: {{object.tipo_prenda}}
+            <br>Color: {{object.color}}
+            <br>Talle: {{object.talle}}
+            <br><a href="{% url 'Todos_dormir' %}">Volver al listado </a>
+
+            </h3>   
+        </div>
+
+{% endblock listado %}
