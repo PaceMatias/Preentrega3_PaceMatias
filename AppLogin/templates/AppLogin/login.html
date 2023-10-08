@@ -2,15 +2,17 @@
 
 
 {% block logueo %}
-
+<h1 class="text-white fs-3 fw-bolder">{{info_registro}}<br>Inicio de Sesión<br>
 <form action="" method="POST"> {% csrf_token %}
-
-    {{form.as_p}}
-
+    <div class="text-center my-5">
+        <table style="margin: 0 auto;">
+        {{form.as_table}}
+        </table>
+    </div>
     <button class="btn btn-primary btn-xl text-uppercase" type= "submit">Iniciar sesión</button>
-
 </form>
-
+<h1 class="text-white fs-3 fw-bolder"><br>No tenes cuenta?
+<a class="btn btn-primary btn-xl text-uppercase" href={% url 'Register' %}>Regitrate</a>
 {% endblock logueo %}
 
 {% block mensaje %}
