@@ -4,7 +4,8 @@ from AppBalti.forms import *
 from AppBalti.models import *
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView,DeleteView
-
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 #vistas de portada
@@ -24,7 +25,7 @@ def dormir(request):
     return render(request, "AppBalti/dormir.html")
 
 #Vistas de Formulario para crear
-
+@login_required
 def puntoventa_formulario(request):
     if request.method == "POST":
         form = Ingreso_PuntoVenta_Form(request.POST)
@@ -51,6 +52,7 @@ def puntoventa_formulario(request):
 
     return render(request,"AppBalti/Formpuntoventa.html",{"form":form})
 
+@login_required
 def conjunto_formulario(request):
     if request.method == "POST":
         form = Ingreso_Conjunto_Form(request.POST)
@@ -78,6 +80,7 @@ def conjunto_formulario(request):
 
     return render(request,"AppBalti/Formconjunto.html",{"form":form})
 
+@login_required
 def bombacha_formulario(request):
     if request.method == "POST":
         form = Ingreso_Bombacha_Form(request.POST)
@@ -104,6 +107,7 @@ def bombacha_formulario(request):
 
     return render(request,"AppBalti/Formbombacha.html",{"form":form})
 
+@login_required
 def dormir_formulario(request):
     if request.method == "POST":
         form = Ingreso_Dormir_Form(request.POST)
@@ -254,28 +258,28 @@ class Detalle_Punto (DetailView):
 
 #Vistas para modificar
 
-class Actualiza_Bombacha (UpdateView):
+class Actualiza_Bombacha (LoginRequiredMixin, UpdateView):
     
     model = Bombacha
     template_name = "AppBalti/Formbombacha.html"
     success_url = "/bombachas/todos"
     fields = ["nombre","articulo","talle","color","tipo_bombacha"]
 
-class Actualiza_Conjunto (UpdateView):
+class Actualiza_Conjunto (LoginRequiredMixin, UpdateView):
     
     model = Conjunto
     template_name = "AppBalti/Formconjunto.html"
     success_url = "/conjuntos/todos"
     fields = ["nombre","articulo","talle","color","tipo_taza","tipo_bombacha"]
 
-class Actualiza_Dormir (UpdateView):
+class Actualiza_Dormir (LoginRequiredMixin, UpdateView):
     
     model = Dormir
     template_name = "AppBalti/Formdormir.html"
     success_url = "/dormir/todos"
     fields = ["nombre","articulo","talle","color","tipo_prenda"]
 
-class Actualiza_Punto (UpdateView):
+class Actualiza_Punto (LoginRequiredMixin, UpdateView):
     model = Puntos_De_Venta
     template_name = "AppBalti/Formpuntoventa.html"
     success_url = "/puntos_de_venta/todos"
@@ -283,25 +287,25 @@ class Actualiza_Punto (UpdateView):
 
 #Vistas para borrar
 
-class Borra_Bombacha (DeleteView):
+class Borra_Bombacha (LoginRequiredMixin, DeleteView):
     
     model = Bombacha
     template_name = "AppBalti/BorraBombacha.html"
     success_url = "/bombachas/todos"
 
-class Borra_Conjunto (DeleteView):
+class Borra_Conjunto (LoginRequiredMixin, DeleteView):
     
     model = Conjunto
     template_name = "AppBalti/BorraConjunto.html"
     success_url = "/conjuntos/todos"
 
-class Borra_Dormir (DeleteView):
+class Borra_Dormir (LoginRequiredMixin, DeleteView):
     
     model = Dormir
     template_name = "AppBalti/BorraDormir.html"
     success_url = "/dormir/todos"
 
-class Borra_Punto (DeleteView):
+class Borra_Punto (LoginRequiredMixin, DeleteView):
     model = Puntos_De_Venta
     template_name = "AppBalti/BorraPunto.html"
     success_url = "/puntos_de_venta/todos"

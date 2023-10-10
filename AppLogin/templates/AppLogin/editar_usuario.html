@@ -1,0 +1,16 @@
+{% extends "AppLogin/base_login.html" %}
+
+
+{% block logueo %}
+<h1 class="text-white fs-3 fw-bolder">Editar Perfil de {{usuario}}<br></h1>
+<form action="" method="POST"> {% csrf_token %}
+    <div class="text-center my-5">
+        <table style="margin: 0 auto;">
+        {{form.as_table}}
+        </table>
+    </div>
+    <button class="btn btn-primary btn-xl text-uppercase" type= "submit">Guardar</button>
+
+</form>
+
+{% endblock logueo %}
