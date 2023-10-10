@@ -33,8 +33,10 @@
                         <li class="nav-item"><a class="nav-link" href={% url 'Conjunto' %}>Conjuntos</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'Bombachas' %}>Bombachas</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'Dormir' %}>Dormir</a></li>
+                        {% if request.user.is_authenticated %}
                         <a class="btn btn-secondary btn-xl text-uppercase" href={% url 'Logout' %}>Cerrar Sesión</a> 
                         <a class="btn btn-warning btn-xl text-uppercase" href={% url 'Editar Usuario' %}>Editar Perfil</a>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

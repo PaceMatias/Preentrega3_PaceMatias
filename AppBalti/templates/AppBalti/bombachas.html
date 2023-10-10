@@ -3,7 +3,9 @@
 Bombis, para renovar<br>enamorandose todos los días
 {% endblock titulo %}
 {% block botones_formularios %}
+{% if request.user.is_authenticated %}
 <a class="btn btn-primary btn-xl text-uppercase" href={% url 'Ingreso_bombacha' %}>Nueva Bombacha</a>
+{% endif %}
 <a class="btn btn-primary btn-xl text-uppercase" href={% url 'Buscar_bombacha' %}>Buscar por tipo</a>
 <a class="btn btn-primary btn-xl text-uppercase" href={% url 'Todos_bombacha' %}>Ver Todas</a>
 {% endblock botones_formularios %}

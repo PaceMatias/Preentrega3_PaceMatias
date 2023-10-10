@@ -1,6 +1,7 @@
 from django import forms 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from AppLogin.models import Avatar
 
 class RegistroUsuario(UserCreationForm):
     email = forms.EmailField()
@@ -18,3 +19,8 @@ class UserEditForm(UserCreationForm):
     class Meta:
         model= User
         fields = ["email","first_name","password1","password2"]
+
+class Avatar_Form (forms.ModelForm):
+    class Meta:
+        model = Avatar
+        fields = '__all__'

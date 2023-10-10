@@ -3,7 +3,9 @@
 Tu proxima Balti<br>esta más cerca!
 {% endblock titulo %}
 {% block botones_formularios %}
+{% if request.user.is_authenticated %}
 <a class="btn btn-primary btn-xl text-uppercase" href={% url 'Ingreso_puntoventa' %}>Nuevo Punto de Venta</a>
+{% endif %}
 <a class="btn btn-primary btn-xl text-uppercase" href={% url 'Buscar_punto' %}>Buscar por provincia</a>
 <a class="btn btn-primary btn-xl text-uppercase" href={% url 'Todos_punto' %}>Ver Todos</a>
 {% endblock botones_formularios %}

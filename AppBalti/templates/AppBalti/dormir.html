@@ -3,7 +3,9 @@
 Ropa para dormir,<br>que te hace soñar
 {% endblock titulo %}
 {% block botones_formularios %}
+{% if request.user.is_authenticated %}
 <a class="btn btn-primary btn-xl text-uppercase" href={% url 'Ingreso_dormir' %}>Nuevo Ingreso</a>
+{% endif %}
 <a class="btn btn-primary btn-xl text-uppercase" href={% url 'Buscar_dormir' %}>Buscar por prenda</a>
 <a class="btn btn-primary btn-xl text-uppercase" href={% url 'Todos_dormir' %}>Ver Todos</a>
 {% endblock botones_formularios %}

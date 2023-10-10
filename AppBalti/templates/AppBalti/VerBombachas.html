@@ -8,10 +8,11 @@
             {% for producto in productos  %}
             Articulo: {{producto.articulo}} - Modelo: {{producto.nombre}} - Tipo: {{producto.tipo_bombacha}}
             <a href="{% url 'Detalle_bombacha' producto.id %}">Ver más </a> |
+            {% if request.user.is_authenticated %}
             <a href="{% url 'Actualiza_bombacha' producto.id %}">Actualizar </a> |
             <a href="{% url 'Borra_bombacha' producto.id %}">Eliminar </a>
             <br>
-
+            {% endif %}
             {% endfor %}
             </h3>   
         </div>
