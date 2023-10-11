@@ -7,4 +7,4 @@ class Avatar(models.Model):
     imagen = models.ImageField(upload_to= 'avatares', null= True, blank = True)
 
     def __str__(self):
-        return f"{self.username}-{self.imagen}"
+        return f"{self.imagen}"
