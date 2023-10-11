@@ -10,7 +10,7 @@ class RegistroUsuario(UserCreationForm):
         model= User
         fields = ["username","email","first_name","password1","password2"]
 
-class UserEditForm(UserCreationForm):
+class EditarUsuario(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(label='Contraseña',widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repetir contraseña',widget=forms.PasswordInput)

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
-from AppLogin.forms import RegistroUsuario, UserEditForm
+from AppLogin.forms import RegistroUsuario, EditarUsuario
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.decorators import login_required
@@ -50,19 +50,18 @@ def registro_usuario(request):
 def editar_perfil(request):
     usuario = request.user
     if request.method == 'POST':
-        form = UserEditForm(request.POST)
+        form = EditarUsuario(request.POST)
         if form.is_valid():
           info = form.cleaned_data
 
           usuario.email = info['email']
-          usuario.password1 = info['password1']
-          usuario.password2 = info['password2']
+          usuario.set_password(info['password1']) 
           usuario.first_name = info['first_name']
 
           usuario.save()
           return render(request, "AppBalti/inicio.html", {"mensaje":f"Se modifico el usuario: {usuario}"})
 
     else:
-        form = UserEditForm(initial={'email': usuario.email,'first_name': usuario.first_name})
+        form = EditarUsuario(initial={'email': usuario.email,'first_name': usuario.first_name})
     
     return render(request, "AppLogin/editar_usuario.html", {"form":form, "usuario": usuario})
