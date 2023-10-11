@@ -2,6 +2,7 @@ from django.urls import path
 from AppBalti.views import *
 
 
+
 urlpatterns = [
     #iniciales
     path('',inicio, name= "Inicio"),
