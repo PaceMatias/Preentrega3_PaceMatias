@@ -1,8 +1,10 @@
-# Preentrega3_PaceMatias
-Estoy comenzando a darle forma al proyecto final que va a ser sobre una marca de lenceria
-En esta etapa se crearon las vistas para los modelos puntos de ventas, conjuntos, bombachas y prendas de dormir.
+# ProyectoFinal_PaceMatias
+El proyecto final es sobre una marca de lenceria, la cual pertenece a mi señora.
+Y es por esto que este proyecto tiene un peso especial para mi.
+Se crearon las vistas para los modelos puntos de ventas, conjuntos, bombachas y prendas de dormir.
 Se crearon formularios para ingreso de datos en los modelos.
 Se crearon formularios para busqueda por cada modelo.
+
 Toda la pagina funciona por botones, se cargaron datos para poder probar, 2 datos por modelo.
 Se pueden ver desde admin para poder realizar busquedas validas.
 
