@@ -2,9 +2,10 @@
 ## Coderhouse Python Comision 47765
 ## Alumno Pace Matias
 
-# Nombre del Proyecto: Baltimora Lenceria
+## Nombre del Proyecto: 
+# Baltimora Lenceria
 
-#Descripcion
+# Descripcion
 
 El proyecto final es sobre una marca de lenceria, la cual pertenece a mi señora.
 Y es por esto que este proyecto tiene un peso especial para mi.
